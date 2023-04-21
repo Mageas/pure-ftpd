@@ -78,6 +78,8 @@ $FTP_USER_PASS" > "$PWD_FILE"
         PURE_PW_ADD_FLAGS="$PURE_PW_ADD_FLAGS -g $FTP_USER_GID"
     fi
 
+    getent group $FTP_USER_GID >/dev/null || groupadd -g $FTP_USER_GID newgroup
+
     pure-pw useradd "$FTP_USER_NAME" -f "$PASSWD_FILE" -m -d "$FTP_USER_HOME" $PURE_PW_ADD_FLAGS < "$PWD_FILE"
 
     if [ ! -z "$FTP_USER_HOME_PERMISSION" ]
@@ -90,7 +92,7 @@ $FTP_USER_PASS" > "$PWD_FILE"
     then
         if ! [[ $(ls -ldn $FTP_USER_HOME | awk '{print $3}') = $FTP_USER_UID ]]
         then
-            chown $FTP_USER_UID "$FTP_USER_HOME"
+            chown $FTP_USER_UID:$FTP_USER_GID "$FTP_USER_HOME"
             echo " root user give $FTP_USER_HOME directory $FTP_USER_UID owner"
         fi
     else
