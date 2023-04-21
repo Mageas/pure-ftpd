@@ -4,7 +4,7 @@ version: '3'
 
 services:
   ftpd_server:
-    image: stilliard/pure-ftpd
+    image: ghcr.io/mageas/pure-ftpd:master
     container_name: pure-ftpd
     ports:
       - "21:21"
