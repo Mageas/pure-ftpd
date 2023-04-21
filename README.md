@@ -96,7 +96,7 @@ ftp -p localhost 21
 Docker compose
 -------------------------
 Docker compose can help you simplify the orchestration of your containers.   
-We have a simple [example of the docker compose](https://github.com/stilliard/docker-pure-ftpd/blob/master/docker-compose.yml).  
+We have a simple [example of the docker compose](https://github.com/Mageas/pure-ftpd/blob/master/docker-compose.yml).  
 & here's a [more detailed example using wordpress](https://github.com/stilliard/docker-pure-ftpd/wiki/Docker-stack-with-Wordpress-&-FTP) with ftp using this image.
 
 -------------------------
@@ -200,8 +200,8 @@ pure-pw passwd bob -f /etc/pure-ftpd/passwd/pureftpd.passwd -m
 Development (via git clone)
 ```bash
 # Clone the repo
-git clone https://github.com/stilliard/docker-pure-ftpd.git
-cd docker-pure-ftpd
+git clone git@github.com:Mageas/pure-ftpd.git
+cd pure-ftpd
 # Build the image
 make build
 # Run container in background:
